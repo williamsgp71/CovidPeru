@@ -1,47 +1,27 @@
 import streamlit as st
 import numpy as np
 import pandas as pd
-st.title('My first app')
-st.write("Here's our first attempt at using data to create a table:")
-"""
-# My first app
-Here's our first attempt at using data to create a table:
-"""
+st.title('Analisis de la data del COVID-PERU')
 
-df = pd.DataFrame({
-  'first column': [1, 2, 3, 4],
-  'second column': [10, 20, 30, 40]
-})
+data_covid = pd.read_csv('D:/EspacioJupyter/datos/positivos_covid.csv',sep=';')
+st.write(data_covid.head())
 
-df
+st.text('Edad Promedio Por sexo Provincia y departamento')
+st.write(data_covid.groupby(['DEPARTAMENTO','PROVINCIA','SEXO']).aggregate({'EDAD':'mean'}).head(50))
 
-chart_data = pd.DataFrame(
-     np.random.randn(20, 3),
-     columns=['a', 'b', 'c'])
+st.text('Creamos un dataframe de solo el departamento de Lima')
+data_covid_lima = data_covid.loc[data_covid['DEPARTAMENTO']=='LIMA']
+st.write(data_covid_lima.head(100))
 
-st.line_chart(chart_data)
+data_covid_lima2 = data_covid_lima.copy()
+data_covid_lima2['RESULTADO'] = 'POSITIVO'
+st.text('Numero de personas contagiadas por SEXO Y DISTRITO')
+st.write(data_covid_lima2.groupby(['DISTRITO','SEXO']).aggregate({'EDAD':'mean','RESULTADO':'size'})
+)
 
-map_data = pd.DataFrame(
-    np.random.randn(1000, 2) / [50, 50] + [37.76, -122.4],
-    columns=['lat', 'lon'])
 
-st.map(map_data)
+st.text('Promedio de edades y cantidad de personas infectadas por coronavirus')
+st.write(data_covid_lima2.groupby('SEXO').aggregate({'EDAD':'mean','RESULTADO':'size'}))
 
-if st.checkbox('Show dataframe'):
-    chart_data = pd.DataFrame(
-    np.random.randn(20, 3),
-    columns=['a', 'b', 'c'])
-import time
-'Starting a long computation...'
-
-# Add a placeholder
-latest_iteration = st.empty()
-bar = st.progress(0)
-
-for i in range(100):
-  # Update the progress bar with each iteration.
-  latest_iteration.text(f'Iteration {i+1}')
-  bar.progress(i + 1)
-  time.sleep(0.1)
-
-'...and now we\'re done!'
+st.text('Estadisticas del dataset covidPeru')
+st.write(data_covid_lima.describe())
