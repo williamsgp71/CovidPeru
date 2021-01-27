@@ -3,7 +3,9 @@ import numpy as np
 import pandas as pd
 st.title('Analisis de la data del COVID-PERU')
 
-data_covid = pd.read_csv('D:/EspacioJupyter/datos/positivos_covid.csv',sep=';')
+#data_covid = pd.read_csv('D:/EspacioJupyter/datos/positivos_covid.csv',sep=';')
+data_covid = pd.read_csv('D:/GitHub/CovidPeru/positivos_covid.csv',sep=';')
+
 st.write(data_covid.head())
 
 st.text('Edad Promedio Por sexo Provincia y departamento')
