@@ -4,7 +4,7 @@ import pandas as pd
 st.title('Analisis de la data del COVID-PERU')
 
 #data_covid = pd.read_csv('D:/EspacioJupyter/datos/positivos_covid.csv',sep=';')
-data_covid = pd.read_csv('D:/GitHub/CovidPeru/positivos_covid.csv',sep=';')
+data_covid = pd.read_csv('https://raw.githubusercontent.com/williamsgp71/CovidPeru/main/positivos_covid.csv',sep=';')
 
 st.write(data_covid.head())
 
