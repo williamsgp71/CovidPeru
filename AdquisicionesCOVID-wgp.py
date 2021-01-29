@@ -43,4 +43,4 @@ st.write(adquisiciones.groupby('PRODUCTO').aggregate({'CANTIDAD':sum}))
 'Productos que mas se vendieron'
 st.write(adquisiciones.groupby('PRODUCTO').aggregate({'CANTIDAD':sum})\
 .sort_values('CANTIDAD',ascending=False))
-'prueb2a22'
+'pruebaprueba'
