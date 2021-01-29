@@ -4,8 +4,8 @@ import pandas as pd
 st.title('Analisis de la data de la adquisiciones del COVID-PERU')
 st.text('Adquisiciones del Covid Peru')
 #adquisiciones = pd.read_excel(io='D:/EspacioJupyter/datos/ADQUISISIONES.xls',sheet_name='itemTablaAdquisiciones')
-adquisiciones = pd.read_excel(io='D:/GitHub/CovidPeru/ADQUISISIONES.xls',sheet_name='itemTablaAdquisiciones')
-
+adquisiciones = pd.read_excel(io='https://github.com/williamsgp71/CovidPeru/blob/main/ADQUISISIONES.xls',sheet_name='itemTablaAdquisiciones')
+#https://github.com/williamsgp71/CovidPeru/blob/main/ADQUISISIONES.xls
 adquisiciones
 
 st.text('Empresas que han vendido mas productos')
@@ -43,3 +43,4 @@ st.write(adquisiciones.groupby('PRODUCTO').aggregate({'CANTIDAD':sum}))
 'Productos que mas se vendieron'
 st.write(adquisiciones.groupby('PRODUCTO').aggregate({'CANTIDAD':sum})\
 .sort_values('CANTIDAD',ascending=False))
+'prueb2a22'
