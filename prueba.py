@@ -31,15 +31,17 @@ if st.checkbox('Show dataframe'):
     chart_data = pd.DataFrame(
        np.random.randn(20, 3),
        columns=['a', 'b', 'c'])
+    st.line_chart(chart_data)
 
-g
 st.write('Mapa de los Estados Unidos')
-'if st.checkbox('Show Map'):
+
+if st.checkbox('Show Map'):
     map_data = pd.DataFrame(
         np.random.randn(1000, 2) / [50, 50] + [37.76, -122.4],
         columns=['lat', 'lon'])
+    st.map(map_data)
 
-    st.map(map_data)'
+
 
 
 option = st.sidebar.selectbox(
