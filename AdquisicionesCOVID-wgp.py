@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-
+import xlrd
 st.title('Analisis de la data de la adquisiciones del COVID-PERU')
 st.text('Adquisiciones del Covid Peru')
 #adquisiciones = pd.read_excel(io='D:/EspacioJupyter/datos/ADQUISISIONES.xls',sheet_name='itemTablaAdquisiciones')
